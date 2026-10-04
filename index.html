@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandan Suresh — Test Engineer II, AI Systems Validation</title>
+  <meta name="description" content="Chandan Suresh, Test Engineer II at Quanta Computer Inc., working on NVIDIA GB200, GB300 and VR-200 NVL72 AI infrastructure platforms." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo" aria-label="Home">CS<span class="accent">.</span></a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#what-i-do">What I do</a>
+        <a href="#work">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+      </nav>
+      <a href="#contact" class="btn btn--sm">Contact</a>
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__bg" aria-hidden="true">
+        <div class="hero__grid"></div>
+        <div class="hero__glow"></div>
+        <div class="hero__scan"></div>
+      </div>
+      <div class="hero__content">
+        <img src="photo.jpg" alt="Chandan Suresh" class="hero__photo reveal" width="640" height="640" />
+        <p class="eyebrow reveal">Test Engineer II · Quanta Computer Inc. · United States</p>
+        <h1 class="hero__title reveal" style="--d:.1s">Chandan Suresh.</h1>
+        <p class="hero__sub reveal" style="--d:.25s">AI systems validation &amp; NPI for NVIDIA GB200, GB300 and VR-200 NVL72 platforms.</p>
+        <div class="hero__cta reveal" style="--d:.4s">
+          <a href="#experience" class="btn">View my experience</a>
+          <button type="button" class="btn btn--ghost" id="recsOpen" aria-haspopup="dialog">Recommendations <span class="btn__count">3</span></button>
+          <button type="button" class="btn btn--ghost btn--diag" id="diagOpen" aria-haspopup="dialog"><span class="btn--diag__prompt" aria-hidden="true">&#9656;</span> Validate this engineer<span class="btn--diag__caret" aria-hidden="true"></span></button>
+        </div>
+      </div>
+      <a href="#about" class="hero__scroll" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ============ STATEMENT (scroll-lit words) ============ -->
+    <section class="statement" id="about">
+      <div class="statement__inner">
+        <p class="statement__text" id="statementText">
+          Engineer working on next-generation NVIDIA GB200, GB300 and VR-200 NVL72 AI infrastructure platforms supporting Meta hyperscale deployments and NPI programs.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT (rest of the summary) ============ -->
+    <section class="section about">
+      <div class="container container--narrow about__body">
+        <p class="reveal">Hands-on experience with NVIDIA NVSwitch systems, GPU server architectures, firmware workflows, platform bring-up, and large-scale AI infrastructure validation. Regularly debug complex GPU, firmware, NVSwitch, CPLD, sensor, and hardware-level failures using Linux-based diagnostics, log analysis, and low-level system troubleshooting techniques.</p>
+        <p class="reveal" style="--d:.1s">Experienced in rack-level validation, infrastructure debugging, firmware recovery workflows, and root cause analysis across high-performance AI compute environments. Passionate about GPU systems, AI infrastructure, hyperscale computing, and solving challenging hardware problems at scale.</p>
+      </div>
+    </section>
+
+    <!-- ============ WHAT I DO (test line) ============ -->
+    <section class="section tl-section" id="what-i-do">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal">What I do</p>
+          <h2 class="section__title reveal" style="--d:.1s">Every rack runs the line.</h2>
+          <p class="section__lede reveal" style="--d:.2s">I take rack-scale AI systems from power-on to production-ready, one station at a time. Pick a station to see what it proves, or run the whole line. With <strong>Show a failure</strong> on, one tray fails run-in, goes to the debug bench and re-enters at Firmware.</p>
+        </header>
+
+        <div class="tl reveal" id="testLine">
+          <div class="tl__inner">
+            <!-- Stepper -->
+            <div class="tl__stepper">
+              <div class="tl__scroller" id="tlScroller">
+                <div class="tl__tabs" role="tablist" aria-label="Validation stations" id="tlTabs">
+                  <div class="tl__rail" aria-hidden="true"><span class="tl__rail-fill" id="tlFill"></span></div>
+                </div>
+              </div>
+              <p class="tl__loop"><span class="tl__loop-fail">Fail</span> → debug bench → back to <span class="tl__loop-back">Firmware</span></p>
+            </div>
+
+            <!-- Status + controls -->
+            <div class="tl__bar">
+              <div class="tl__ring" id="tlRing" aria-hidden="true"><span id="tlPct">0%</span></div>
+              <div class="tl__state">
+                <strong id="tlPhase">Ready</strong>
+                <span id="tlStation">Rack power-on</span>
+              </div>
+              <div class="tl__controls">
+                <button type="button" class="btn btn--sm" id="tlRun">Run the line</button>
+                <button type="button" class="btn btn--sm btn--ghost" id="tlPause" disabled>Pause</button>
+                <label class="tl__toggle">
+                  <input type="checkbox" id="tlFail" checked />
+                  <span class="tl__switch" aria-hidden="true"></span>
+                  Show a failure
+                </label>
+              </div>
+            </div>
+
+            <!-- Stage: details · rack · log -->
+            <div class="tl__stage" id="tlPanel" role="tabpanel" aria-labelledby="tl-tab-0">
+              <div class="tl__details" id="tlDetails">
+                <h3 id="tlName">Rack power-on</h3>
+                <p class="tl__tag" id="tlTag"></p>
+                <p class="tl__desc" id="tlDesc"></p>
+                <div class="tl__cols">
+                  <div>
+                    <h4>What it checks</h4>
+                    <ul class="tl__checks" id="tlChecks"></ul>
+                  </div>
+                  <div>
+                    <h4>Pass means</h4>
+                    <p id="tlPass"></p>
+                    <h4>What it catches</h4>
+                    <p id="tlCatches"></p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tl__rackwrap">
+                <div class="tl__rackarea">
+                  <div class="rack" id="tlRack" aria-hidden="true">
+                    <div class="rack__rows" id="tlRows"></div>
+                    <div class="rack__scanbox"><div class="rack__scan"></div></div>
+                  </div>
+                  <div class="bench" id="tlBench" aria-hidden="true"><span>Debug bench</span></div>
+                </div>
+                <p class="tl__status" id="tlStatus">Ready · press Run the line</p>
+                <dl class="tl__counters">
+                  <div><dt>Station</dt><dd id="tlC1">0%</dd></div>
+                  <div><dt>Trays tested</dt><dd id="tlC2">0/18</dd></div>
+                  <div><dt>Errors</dt><dd id="tlC3">0</dd></div>
+                </dl>
+              </div>
+
+              <div class="tl__log">
+                <div class="tl__loghead"><span>Test log</span><span id="tlLogTag">[power-on]</span></div>
+                <ol class="tl__loglines" id="tlLog"></ol>
+              </div>
+            </div>
+            <p class="sr-only" aria-live="polite" id="tlLive"></p>
+          </div>
+        </div>
+
+        <!-- Failure walkthrough -->
+        <div class="fw">
+          <div class="fw__intro">
+            <p class="eyebrow reveal">Failure walkthrough</p>
+            <h3 class="reveal" style="--d:.1s">The link that only failed hot.</h3>
+            <p class="reveal" style="--d:.2s">A composite example of the faults this line exists to catch. There are no program specifics here, just how I work a problem from first symptom to a test that stops it from coming back.</p>
+          </div>
+          <ol class="fw__steps" id="fwSteps">
+            <li class="fw__step" data-kind="symptom">
+              <span class="fw__marker">1</span>
+              <div>
+                <h4>Symptom</h4>
+                <p>Pretest is clean, but a few hours into run-in a handful of trays start logging PCIe correctable errors. After a reset, one slot comes back at half width. A quick re-test at idle passes, which is exactly what makes this kind of fault dangerous.</p>
+              </div>
+            </li>
+            <li class="fw__step">
+              <span class="fw__marker">2</span>
+              <div>
+                <h4>Hypotheses</h4>
+                <p>Three candidates: a marginal riser, cable or connector; thermal, with link margin collapsing once the tray heat-soaks under load; or BIOS link-equalization settings that don't suit this board revision.</p>
+              </div>
+            </li>
+            <li class="fw__step">
+              <span class="fw__marker">3</span>
+              <div>
+                <h4>Isolation</h4>
+                <p>Rule out configuration first: check firmware and BIOS against the manifest. Then a Python/Bash loop logs link width and speed, error counters and BMC temperature telemetry every cycle, so the moment errors start can be lined up against the temperatures. Finally, swap the riser between a failing and a passing slot to see whether the fault follows the part or the position.</p>
+              </div>
+            </li>
+            <li class="fw__step">
+              <span class="fw__marker">4</span>
+              <div>
+                <h4>Root cause</h4>
+                <p>The fault follows the riser, and only above a certain temperature. That points to a riser batch with too little signal margin, which passes cold and degrades once the tray is hot.</p>
+              </div>
+            </li>
+            <li class="fw__step">
+              <span class="fw__marker">5</span>
+              <div>
+                <h4>Fix</h4>
+                <p>Quarantine the batch and replace the risers on the affected racks. File the corrective action with logs and reproduction steps attached, then re-run run-in on the repaired racks and confirm zero new errors.</p>
+              </div>
+            </li>
+            <li class="fw__step" data-kind="prevention">
+              <span class="fw__marker">6</span>
+              <div>
+                <h4>Prevention</h4>
+                <p>Pretest now checks that every PCIe device trained at its expected width and speed, and run-in samples error counters each cycle with a fail threshold. A degrading link now fails run-in instead of slipping through to Fabric, or to a customer.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STATS ============ -->
+    <section class="section stats">
+      <div class="container stats__grid">
+        <div class="stat reveal">
+          <span class="stat__num" data-count="7">0</span>
+          <span class="stat__label">Roles across 6 organizations</span>
+        </div>
+        <div class="stat reveal" style="--d:.1s">
+          <span class="stat__num" data-count="2">0</span>
+          <span class="stat__label">Computer Science degrees</span>
+        </div>
+        <div class="stat reveal" style="--d:.2s">
+          <span class="stat__num" data-count="3">0</span>
+          <span class="stat__label">Certifications</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="section" id="work">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal">Projects</p>
+          <h2 class="section__title reveal" style="--d:.1s">Built to perform.</h2>
+        </header>
+
+        <div class="projects">
+          <article class="card-wrap reveal">
+            <div class="card">
+              <div class="card__inner">
+                <div class="card__visual card__visual--a" aria-hidden="true"></div>
+                <div class="card__body">
+                  <span class="card__tag">Cleveland State University · Dec 2023 – Jan 2024</span>
+                  <h3 class="card__title">Generative AI Personal Assistant (Prototype)</h3>
+                  <p class="card__desc">A prototype chatbot that uses prompt engineering for personalized daily task support and content summarization, integrating OpenAI's GPT for real-time responses based on user context and tone.</p>
+                  <ul class="chips"><li>OpenAI GPT</li><li>Prompt engineering</li></ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="card-wrap reveal" style="--d:.1s">
+            <div class="card">
+              <div class="card__inner">
+                <div class="card__visual card__visual--b" aria-hidden="true"></div>
+                <div class="card__body">
+                  <span class="card__tag">Cleveland State University · May 2023 – Jul 2023</span>
+                  <h3 class="card__title">Smart Pharmaceutical Refrigerator using IoT</h3>
+                  <p class="card__desc">An AI-powered IoT solution that monitors pharmaceutical storage with image recognition and sensor integration. CNN-based object detection classifies medical supplies, and optimized sensor-driven data pipelines improved detection accuracy by 92% and reduced manual intervention by 80%.</p>
+                  <ul class="chips"><li>Python</li><li>Arduino Uno</li><li>CNN</li><li>OpenCV</li><li>TensorFlow</li></ul>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="section" id="skills">
+      <div class="container">
+        <header class="section__head">
+          <p class="eyebrow reveal">Toolkit</p>
+          <h2 class="section__title reveal" style="--d:.1s">The right tool. Every time.</h2>
+        </header>
+        <div class="skills">
+          <div class="skill reveal">
+            <span class="skill__index">01</span>
+            <h3>AI Infrastructure</h3>
+            <p>GPU Systems · NVIDIA NVSwitch · Platform bring-up · Rack validation · Firmware workflows · Linux diagnostics</p>
+          </div>
+          <div class="skill reveal" style="--d:.08s">
+            <span class="skill__index">02</span>
+            <h3>Testing &amp; QA</h3>
+            <p>Test Automation · QA Automation · Selenium · Tricentis Tosca · Test-Driven Development · User Acceptance Testing · Test Planning · Test Management</p>
+          </div>
+          <div class="skill reveal" style="--d:.16s">
+            <span class="skill__index">03</span>
+            <h3>Languages</h3>
+            <p>Python · SQL · Java · C# · C · JavaScript</p>
+          </div>
+          <div class="skill reveal" style="--d:.24s">
+            <span class="skill__index">04</span>
+            <h3>Data &amp; Delivery</h3>
+            <p>SSIS · SSAS · ETL · Stored Procedures · Tableau · Machine Learning · CI/CD · Agile · Kanban · SDLC</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCE ============ -->
+    <section class="section" id="experience">
+      <div class="container container--narrow">
+        <header class="section__head">
+          <p class="eyebrow reveal">Experience</p>
+          <h2 class="section__title reveal" style="--d:.1s">Where I've shipped.</h2>
+        </header>
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Sep 2026 — Now</span>
+            <div>
+              <h3>Test Engineer II – AI Systems Validation &amp; NPI · Quanta Computer Inc.</h3>
+              <p class="timeline__meta">California, United States · Full-time · On-site</p>
+              <ul>
+                <li>Oversee validation activities across multiple AI infrastructure projects and NPI programs.</li>
+                <li>VR200 NPI validation, progressing the platform from DVT through PVT.</li>
+                <li>Drive cross-functional issue triage, prioritization, and resolution across engineering teams.</li>
+                <li>Monitor project validation status, critical blockers, and production readiness.</li>
+                <li>Support validation strategy and execution across multiple platforms and project phases.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Sep 2025 — Aug 2026</span>
+            <div>
+              <h3>Test Engineer I · Quanta Computer Inc.</h3>
+              <p class="timeline__meta">California, United States · Full-time · Hybrid</p>
+              <ul>
+                <li>Work on NVIDIA GB200 and GB300 AI infrastructure platforms supporting Meta hyperscale deployments and NPI programs.</li>
+                <li>Perform platform bring-up, rack validation, firmware workflows, and infrastructure debugging across large-scale GPU server environments.</li>
+                <li>Debug complex GPU, NVSwitch, CPLD, sensor, PSU, and firmware-related failures at rack and system level.</li>
+                <li>Analyze low-level logs, hardware telemetry, and Linux-based diagnostics to identify root causes and improve system reliability.</li>
+                <li>Support firmware installation, recovery, validation, and troubleshooting for NVIDIA AI compute infrastructure platforms.</li>
+                <li>Investigate hardware communication issues, platform instability, and infrastructure failures across AI data center environments.</li>
+                <li>Work closely with cross-functional engineering, manufacturing, and validation teams during Meta NPI deployment phases.</li>
+              </ul>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Jun 2025 — Aug 2025</span>
+            <div>
+              <h3>Software Engineer · Falcon Tech Services</h3>
+              <p class="timeline__meta">Cleveland, Ohio, United States · Contract · Remote</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Aug 2024 — Jun 2025</span>
+            <div>
+              <h3>Volunteering – Software Engineer · Bright Mind Enrichment &amp; Schooling</h3>
+              <p class="timeline__meta">United States · Part-time · Remote</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Aug 2023 — May 2024</span>
+            <div>
+              <h3>Teaching Assistant · Cleveland State University</h3>
+              <p class="timeline__meta">Cleveland, Ohio, United States · Part-time · On-site</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Aug 2020 — Aug 2022</span>
+            <div>
+              <h3>Application Development Engineer · Accenture</h3>
+              <p class="timeline__meta">Bangalore Urban, Karnataka, India · Full-time · Hybrid</p>
+              <p>Software Development · Test-Driven Development</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Jun 2018 — Jul 2019</span>
+            <div>
+              <h3>Project Intern · ITChamps Software – SAP Consulting</h3>
+              <p class="timeline__meta">Mysore, Karnataka, India · Internship</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ EDUCATION & CERTIFICATIONS ============ -->
+    <section class="section" id="education">
+      <div class="container container--narrow">
+        <header class="section__head">
+          <p class="eyebrow reveal">Education</p>
+          <h2 class="section__title reveal" style="--d:.1s">Always learning.</h2>
+        </header>
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Master's</span>
+            <div>
+              <h3>Cleveland State University</h3>
+              <p>Master's degree, Computer Science</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Bachelor's</span>
+            <div>
+              <h3>PES College of Engineering, Mandya</h3>
+              <p>Bachelor of Engineering – BE, Computer Science</p>
+            </div>
+          </li>
+        </ol>
+
+        <h3 class="subhead reveal">Licenses &amp; certifications</h3>
+        <ol class="timeline">
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Apr 2025</span>
+            <div>
+              <h3>The Complete 2025 Software BootCamp · Udemy</h3>
+              <p class="timeline__meta">Credential ID UC-dc3324fc-92cb-4272-b638-f5d2f8b17985</p>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">Mar 2021</span>
+            <div>
+              <h3>Automation Specialist · Tricentis</h3>
+            </div>
+          </li>
+          <li class="timeline__item reveal">
+            <span class="timeline__date">—</span>
+            <div>
+              <h3>Machine Learning · Coursera</h3>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section contact" id="contact">
+      <div class="contact__glow" aria-hidden="true"></div>
+      <div class="container contact__inner">
+        <p class="eyebrow reveal">Contact</p>
+        <h2 class="contact__title reveal" style="--d:.1s">Let's build something<span class="accent">.</span></h2>
+        <p class="contact__sub reveal" style="--d:.2s">GPU systems, AI infrastructure and hyperscale computing.</p>
+        <div class="hero__cta reveal" style="--d:.3s">
+          <a href="mailto:sureshchandan1998@gmail.com" class="btn">sureshchandan1998@gmail.com</a>
+          <a href="resume.pdf" class="btn btn--ghost" target="_blank" rel="noopener">Résumé</a>
+          <a href="https://www.linkedin.com/in/chandan-suresh-a22783185/" class="btn btn--ghost" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© <span id="year"></span> Chandan Suresh</span>
+      <span class="footer__status"><i></i> California, United States</span>
+    </div>
+  </footer>
+
+  <!-- ============ RECOMMENDATIONS PANEL ============ -->
+  <dialog class="diag recs" id="recs" aria-labelledby="recsTitle">
+    <div class="diag__frame">
+      <div class="diag__inner">
+        <header class="diag__head">
+          <span class="diag__lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="recs__title" id="recsTitle">Recommendations <span>from people who&rsquo;ve worked with me</span></h2>
+          <div class="diag__actions">
+            <button type="button" class="btn btn--sm" id="recsClose" autofocus>Close</button>
+          </div>
+        </header>
+
+        <div class="recs__body">
+          <figure class="rec">
+            <span class="rec__mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>
+              <p>I had the pleasure of working with Chandan while he supported NVIDIA GB systems as a Test Engineer at Quanta. He demonstrated ownership in manufacturing validation and troubleshooting complex hardware issues. Chandan works effectively in fast-paced manufacturing environments and collaborates with cross-functional teams to drive issues to resolution. His technical skills, dedication, and collaborative approach make him a valuable contributor to any engineering team.</p>
+            </blockquote>
+            <figcaption>
+              <strong>Enterprise Technical Program Manager</strong>
+              <span class="rec__co">NVIDIA</span>
+            </figcaption>
+          </figure>
+
+          <figure class="rec">
+            <span class="rec__mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>
+              <p>Chandan is a motivated individual that I've worked with on the NVIDIA GB systems where we've collaborated on NVSwitch platforms, firmware/MFG validation, and debugging complex failures during L11 rack-level testings. He's taken ownership to lead by example and pushing out racks during pressing deadlines set by clients. Definitely a great team member to work with!</p>
+            </blockquote>
+            <figcaption>
+              <strong>Production Application Engineer</strong>
+              <span class="rec__co">NVIDIA</span>
+            </figcaption>
+          </figure>
+
+          <figure class="rec">
+            <span class="rec__mark" aria-hidden="true">&ldquo;</span>
+            <blockquote>
+              <p>Chandan Suresh joined Accenture as an ASE. On joining QuickBase factory he took up Selenium and TOSCA Automation work. He learnt both the tools by himself and contributed for multiple projects regression test script automations. He has contributed in 90% test script automation in each of the projects aligned. He has a good hold on automation tools.</p>
+              <p>He was a very committed, hardworking and intelligent resource. The best part is the zeal to learn new technologies and always ready to adopt for new work.</p>
+              <p>I wish him all the best for future endeavors.</p>
+            </blockquote>
+            <figcaption>
+              <strong>Business and Integration Architecture Manager</strong>
+              <span class="rec__co">Accenture</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <footer class="diag__status">
+          <span class="diag__led is-up" aria-hidden="true"></span>
+          <span class="diag__statustext">3 recommendations · names withheld for privacy</span>
+          <a class="diag__count recs__link" href="https://www.linkedin.com/in/chandan-suresh-a22783185/details/recommendations/" target="_blank" rel="noopener">View on LinkedIn ↗</a>
+        </footer>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ============ DIAGNOSTICS PANEL ============ -->
+  <dialog class="diag" id="diag" aria-labelledby="diagTitle">
+    <div class="diag__frame">
+      <div class="diag__inner">
+        <header class="diag__head">
+          <span class="diag__lights" aria-hidden="true"><i></i><i></i><i></i></span>
+          <h2 class="diag__title" id="diagTitle">diag://chandan-suresh</h2>
+          <div class="diag__actions">
+            <button type="button" class="btn btn--sm btn--ghost" id="diagReplay">Replay</button>
+            <button type="button" class="btn btn--sm" id="diagClose" autofocus>Close</button>
+          </div>
+        </header>
+
+        <div class="diag__body">
+          <section class="diag__term" aria-label="Self-test output">
+            <div class="diag__termhead" aria-hidden="true"><span>self-test</span><span>tty0</span></div>
+            <div class="diag__log" id="diagLog"></div>
+          </section>
+
+          <section class="diag__flow" id="diagFlow" aria-label="Link training">
+            <ul class="diag__legend" id="diagLegend" aria-hidden="true"></ul>
+            <div class="diag__canvaswrap" id="diagWrap">
+              <canvas id="diagCanvas" role="img" aria-label="Link training: six lanes from Lab, through the validation fabric, to Production"></canvas>
+              <button type="button" class="diag__refill" id="diagRefill" aria-label="Refill coffee" hidden>Refill ☕</button>
+            </div>
+          </section>
+        </div>
+
+        <footer class="diag__status">
+          <span class="diag__led" id="diagLed" aria-hidden="true"></span>
+          <span class="diag__statustext" id="diagStatus">Training… 0/6 lanes up</span>
+          <span class="diag__count" id="diagCount"></span>
+        </footer>
+        <p class="sr-only" aria-live="polite" id="diagLive"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
+  <script src="testline.js"></script>
+  <script src="diagnostics.js"></script>
+</body>
+</html>
